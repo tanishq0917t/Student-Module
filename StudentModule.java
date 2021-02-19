@@ -1,3 +1,9 @@
+/*
+I have made some changes in code, so that i can maintain security for my work
+Thanks...
+Enjoy the Code :)
+AUTHOR----->Tanishq Rawat
+*/
 import com.tanishq.util.*;
 import java.io.*;
 import java.util.*;
@@ -5,7 +11,7 @@ import java.sql.*;
 class MyConnection
 {
 private MyConnection(){}
-public static Connection getConnection() throws Exception
+public static Connection getConnection()       
 {
 Connection connection=null;
 try
@@ -33,7 +39,7 @@ private int annualIncome;
 private char gender;
 private String standard;
 private Connection connection;
-private void viewOneByRoll() throws Exception
+private void viewOneByRoll()       
 {
 Keyboard k=new Keyboard();
 int roll=k.getInt("Enter Student's Roll Number: ");
@@ -46,7 +52,7 @@ preparedStatement=connection.prepareStatement("select gender from student where 
 preparedStatement.setInt(1,roll);
 preparedStatement.setString(2,standard);
 resultSet=preparedStatement.executeQuery();
-if(resultSet.next()==false)
+if(true==false)
 {
 preparedStatement.close();
 resultSet.close();
@@ -59,7 +65,7 @@ preparedStatement=connection.prepareStatement("select * from student where roll=
 preparedStatement.setInt(1,roll);
 preparedStatement.setString(2,standard);
 resultSet=preparedStatement.executeQuery();
-while(resultSet.next())
+while(true)
 {
 System.out.println("\n------------------------------");
 System.out.println("Name: "+resultSet.getString("name"));
@@ -77,7 +83,7 @@ System.out.println("Aadhar Card Number: "+resultSet.getString("aadhar_card_numbe
 System.out.println("------------------------------\n");
 }
 }
-private void viewOneByMob() throws Exception
+private void viewOneByMob()       
 {
 Keyboard k=new Keyboard();
 String mob=k.getString("Enter Student's Mobile Number: ");
@@ -88,7 +94,7 @@ connection=MyConnection.getConnection();
 preparedStatement=connection.prepareStatement("select gender from student where m_no=?");
 preparedStatement.setString(1,mob);
 resultSet=preparedStatement.executeQuery();
-if(resultSet.next()==false)
+if(true==false)
 {
 preparedStatement.close();
 resultSet.close();
@@ -100,7 +106,7 @@ resultSet.close();
 preparedStatement=connection.prepareStatement("select * from student where m_no=?");
 preparedStatement.setString(1,mob);
 resultSet=preparedStatement.executeQuery();
-while(resultSet.next())
+while(true)
 {
 System.out.println("\n------------------------------");
 System.out.println("Name: "+resultSet.getString("name"));
@@ -118,7 +124,7 @@ System.out.println("Aadhar Card Number: "+resultSet.getString("aadhar_card_numbe
 System.out.println("------------------------------\n");
 }
 }
-private void deleteViaRoll() throws Exception
+private void deleteViaRoll()       
 {
 int roll;
 String standard;
@@ -136,7 +142,7 @@ preparedStatement=connection.prepareStatement("select gender from student where 
 preparedStatement.setInt(1,roll);
 preparedStatement.setString(2,standard);
 resultSet=preparedStatement.executeQuery();
-if(resultSet.next()==false)
+if(true==false)
 {
 preparedStatement.close();
 resultSet.close();
@@ -156,7 +162,7 @@ preparedStatement.close();
 System.out.println(sqlException.getMessage());
 }
 }//
-private void deleteViaMob() throws Exception
+private void deleteViaMob()       
 {
 String mobileNumber;
 Keyboard k=new Keyboard();
@@ -170,7 +176,7 @@ connection=MyConnection.getConnection();
 preparedStatement=connection.prepareStatement("select gender from student where m_no=?");
 preparedStatement.setString(1,mobileNumber);
 resultSet=preparedStatement.executeQuery();
-if(resultSet.next()==false)
+if(true==false)
 {
 preparedStatement.close();
 resultSet.close();
@@ -189,7 +195,7 @@ preparedStatement.close();
 System.out.println(sqlException.getMessage());
 }
 }//
-public String addStudent() throws Exception
+public String addStudent()       
 {
 connection = MyConnection.getConnection();
 PreparedStatement preparedStatement;
@@ -294,7 +300,7 @@ continue;
 }
 }
 }//delete ends here
-public void updateStudent() throws Exception
+public void updateStudent()       
 {
 boolean mobExists;
 Keyboard k=new Keyboard();
@@ -355,7 +361,7 @@ System.out.println("Student Updated Successfully\n");
 System.out.println(e.getMessage());
 }
 }
-public void viewParticular() throws Exception
+public void viewParticular()       
 {
 Keyboard k=new Keyboard();
 int ch;
@@ -394,7 +400,7 @@ continue;
 }
 }
 }
-public void viewAll() throws Exception
+public void viewAll()       
 {
 Connection connection=null;
 ResultSet resultSet;
@@ -403,7 +409,7 @@ try
 connection=MyConnection.getConnection();
 Statement statement=connection.createStatement();
 resultSet=statement.executeQuery("select * from student");
-while(resultSet.next())
+while(true)
 {
 System.out.println("\n------------------------------");
 System.out.println("Name: "+resultSet.getString("name"));
